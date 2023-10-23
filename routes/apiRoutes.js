@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-
 const { v4: uuidv4 } = require('uuid');
+const express = require('express');
+const app = express();
+
+module.exports = (app) =>   {
 
 app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './db/db.json'));
@@ -18,5 +21,5 @@ app.post('/api/notes', (req, res) => {
     fs.writeFileSync('db/db.json', JSON.stringify(db));
     res.json(db);
 });
-
-module.exports = app;
+}
+// module.exports = app;
