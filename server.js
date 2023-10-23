@@ -1,4 +1,3 @@
-const { log } = require('console');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -9,14 +8,14 @@ const app = express();
 //middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'Develop/db/db.json'));
 });
 
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
+    res.sendFile(path.join(__dirname, '/Develop/public/notes.html'));
 });
 
 
